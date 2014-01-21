@@ -19,4 +19,8 @@ class Catechism::Trial
     describe_blocks.each(&:call)
     puts "All trials passed in #{trial_path}."
   end
+
+  def run_at_line(line_number)
+    describe_blocks.each {|b| $stderr.puts b.block.source_location.inspect}
+  end
 end
